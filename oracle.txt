@@ -1,0 +1,716 @@
+file->new ->spring starter project
+--------------------------Example-1--------------------
+Test1.java
+----------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+//ctrl+shift+O
+@Component("test")
+public class Test1 
+{
+public void welcome()
+{
+	System.out.println("welcome to Rest WebServices");
+}
+public int sum(int a,int b)
+{
+	return a+b;
+}
+
+public int sub(int a,int b)
+{
+	return a-b;
+}
+
+}
+------------------------------------------------------------------------------------------
+Test2.java
+----------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+//ctrl+shift+O
+@Component("test1")
+public class Test2 
+{
+public void welcomeMphasis()
+{
+	System.out.println("welcome to Rest WebServices Mphasis Batch215");
+}
+public int mul(int a,int b)
+{
+	return a*b;
+}
+
+public int div(int a,int b)
+{
+	return a / b;
+}
+
+}
+---------------------------------------------------------------------------------------------------
+Test3.java
+----------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+@Component("test2")
+public class Test3 
+{
+public int square(int i)
+{
+	return i*i;
+}
+}
+----------------------------------------------------------------------
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import java.util.*;
+@SpringBootApplication
+public class SpringBootBatch215ex1Application {
+	//ctrl+shift+O
+	public static void main(String[] args)
+	{
+		ApplicationContext ac=SpringApplication.run(SpringBootBatch215ex1Application.class, args);
+		Test1 obj=ac.getBean("test",Test1.class);
+		obj.welcome();
+		System.out.println("the sum is "+obj.sum(5, 6));
+		System.out.println("the sub is "+obj.sub(7,3));
+		
+		Test2 obj1=ac.getBean("test1",Test2.class);
+		obj1.welcomeMphasis();
+		System.out.println("the mul is "+obj1.mul(6, 7));
+		System.out.println("the div is "+obj1.div(14,7));
+		
+		Scanner ob=new Scanner(System.in);
+		System.out.println("Enter a no");
+		int i=ob.nextInt();
+		Test3 ob3=ac.getBean("test2",Test3.class);
+		System.out.println("the square is :"+ob3.square(i));	
+		}
+
+}
+-------------------------------------------------------------------------
+ApplicationContext is a container to create a object for the class.
+It has a method class getBean() which will accept the class name and object name as parameter.
+This is assigned to another object .with this object we can access the methods of the class.
+
+
+example:- @Component("test") :- test is a object of the class Test1.
+So it will create object for the class Test1.
+-------------------------------Example-2------------------------------------------------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Component;
+
+@Component("emp")
+public class Employee 
+{
+int empno;
+String name;
+float sal;
+void input(int empno,String name,float sal)
+{
+	this.empno=empno;
+	this.name=name;
+	this.sal=sal;
+}
+void display()
+{
+	System.out.println("the empno is "+empno);
+	System.out.println("the name is "+name);
+	System.out.println("the salary is "+sal);
+	}
+}
+----------------------------------------------------------------------------
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import java.util.*;
+@SpringBootApplication
+public class SpringBootBatch215ex1Application {
+	//ctrl+shift+O
+	public static void main(String[] args)
+	{
+		ApplicationContext ac=SpringApplication.run(SpringBootBatch215ex1Application.class, args);
+		Test1 obj=ac.getBean("test",Test1.class);
+		obj.welcome();
+		System.out.println("the sum is "+obj.sum(5, 6));
+		System.out.println("the sub is "+obj.sub(7,3));
+		
+		Test2 obj1=ac.getBean("test1",Test2.class);
+		obj1.welcomeMphasis();
+		System.out.println("the mul is "+obj1.mul(6, 7));
+		System.out.println("the div is "+obj1.div(14,7));
+		
+		Scanner ob=new Scanner(System.in);
+		System.out.println("Enter a no");
+		int i=ob.nextInt();
+		Test3 ob3=ac.getBean("test2",Test3.class);
+		System.out.println("the square is :"+ob3.square(i));	
+		
+		System.out.println("Enter a empno,name,salary");
+		int empno=ob.nextInt();
+		String name=ob.next();
+		float sal=ob.nextFloat();
+		Employee obj3=ac.getBean("emp",Employee.class);
+				
+		obj3.input(empno, name, sal);
+		obj3.display();
+				
+		}
+
+}
+-----------------------------------------------------Assignment-1---------------------------------------
+create a application Bank
+create 2 methods input() and display();
+accno,name,balance,address
+Take input from the user.
+----------------------------------------------------------------------
+create a new springStaterProject
+
+create a application Student
+create 2 methods input() and display();
+rollno,name,address,marks (phy,chem,bio),find total and average.
+if avg > 75 "First"
+if avg > 65 "Second"
+if avg > 55 "Third"
+else
+"fail"
+Take input from the user.
+----------------------------------SpringMVC----------------------------------------
+
+
+@GetMapping("/login")------------http://localhost:8090/login
+it will display the login page
+---------------------------------------------------------------------------------------------
+@GetMapping("/Register")------------http://localhost:8090/Register
+it will display the Register page
+------------------------------------Example-1------------------------------------------------------------
+step 1:- file ---new ---spring stater project.
+step-2:- goto webapp--->
+step-3:-create a folder ----WEB-INF
+step-4:-inside that create a folder---view
+step-5:-inside that create login.jsp and register.jsp files. 
+--------------------------------
+Register.jsp
+-----------------
+<html>
+<title>Employee Registration Page</title>
+</head>
+<body>
+<h1><center>Employee Registration Page</center></h1><hr>
+<form action=second>
+<table>
+<tr><td>Enter your name<td><input type=text name=t1 size=20></td></tr>
+<tr><td>Enter your address<td><input type=address name=t2 size=20></td></tr>
+<tr><td>Enter your phoneno<td><input type=text name=t3 size=20></td></tr>
+<tr><td>Enter your email<td><input type=address name=t4 size=20></td></tr>
+<tr><td>Enter your salary<td><input type=text name=t5 size=20></td></tr>
+<tr><td>Enter your designation<td><input type=address name=t6 size=20></td></tr>
+<tr><td><td><input type=submit value=submit></td></tr>
+</table>
+</form>
+</body>
+</html>
+---------------------------------
+login.jsp
+------------------
+<!DOCTYPE html>
+<html>
+<title>Employee Login Page</title>
+<body>
+<h1><center>Employee Login Page</center></h1><hr>
+<form action=login>
+<table>
+<tr><td>Enter username<td><input type=text name=t1 size=20></td></tr>
+<tr><td>Enter password<td><input type=password name=t2 size=20></td></tr>
+<tr><td><td><input type=submit value=submit></td></tr>
+</table>
+</form>
+</body>
+</html>
+--------------------------------------------------------------------------------------------
+TestController.java
+----------------------
+package com.example.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class TestController
+{
+
+	@GetMapping("/show")
+	public String showLogin()
+	{
+		return "login";
+	}
+	
+	@GetMapping("/show1")
+	public String showRegister()
+	{
+		return "register";
+	}
+}
+-----------------------------------------------------------------------
+properties files
+-----------------------
+server.port=8090
+
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+---------------------------------------------------------pom.xml-------------------
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+--------------------------------------------------------------------------------------------------------
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootMvCexample1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootMvCexample1Application.class, args);
+	}
+
+}
+------------------------------------------------------------
+create an application for COVID-19
+1)patient login/register
+2)book a bed
+3)book an ambulance
+4)Feedback
+using springBootMvc
+--------------------------------------------------3rd Feb 2022------------------
+Oracle 10XE
+-------------------------------------------
+It is a database .where our data need to be stored.
+It will be stored in the form of table.
+example student table having rollno,name,address,email.we can store any number of student's data.
+------------------------------------------------------------------------------------------------------------------------------- 
+1)create table student215 (rollno number,name varchar2(30),address varchar2(30),email varchar2(30)) 
+
+2)insert into student215 values(103,'kamal','MP','kamal@gmail.com')
+
+3)select * from student215
+
+4)update student215 set address='bangalore' where rollno=102;
+
+5)delete from student215 where rollno=104
+
+6)update student215 set rollno=1002 where name='Manish';
+
+7)desc student215;
+
+8)select * from tab;
+
+9)alter table register215 add gender varchar2(30);
+
+alter table register215 add nation varchar2(30); 
+alter table register215 add hobby varchar2(30);
+
+10)0drop table register215;
+
+11)update register215 set gender='Male' where name in('sandip','manish','Gopal');
+
+update register215 set nation='india' where name in('sandip','manish','Gopal');
+
+update register215 set hobby='football' where name='Gopal';
+--------------------------------------------------------------------------
+create a bank table
+
+accno number,name varchar2(30),deposite number(9,2),address varchar2(30),balance number(9,2)
+
+number(9,2)=9999999.99
+
+drop table student215
+------------------------Middleware to Backend-------------------------------------------------------------
+JDBC
+-----------------
+java database connection.
+
+java (byte code)----------------driver-------------------oracle(ascii code)
+
+1)we have to install the driver in properties files
+2)as well as add the jar file to our program.(pom.xml)
+-------------------------------------------------------------------------------------------------------------------------------
+request is given by client---every day we give request to gmail server,facebook server,amazon server.
+reponse is given by server.  
+--------------------------------------------------------------------------------------------------
+pom.xml
+----------------------------
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.oracle.ojdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>19.3.0.0</version>
+		</dependency>
+---------------------------------------------------------------------------------------------------------------
+properties
+-----------------
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:xe
+spring.datasource.username=system
+spring.datasource.password=1234
+------------------------------------------------------------------------------------------
+controller
+--------------------
+package com.example.demo;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class TestController
+{
+	@Autowired
+	private JdbcTemplate jt;
+
+	@GetMapping("/log")
+	public String showLogin()
+	{
+		return "login";
+	}
+	
+	@GetMapping("/reg")
+	public String showRegister()
+	{
+		return "register";
+	}
+	
+	@RequestMapping("/save")
+	public String doRegistration(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException
+	{
+		String a=req.getParameter("t1");
+		String b=req.getParameter("t2");
+		String c=req.getParameter("t3");
+		String d=req.getParameter("t4");
+		String e=req.getParameter("t5");
+		String f=req.getParameter("t6");
+		
+		String sql="insert into register215 values(?,?,?,?,?,?)";
+		int count=jt.update(sql,a,b,c,d,e,f);
+		System.out.println("row inserted");
+		return "success";
+		
+	}
+}
+-----------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<title>Employee Registration Page</title>
+<body>
+<h1><center>Employee Registration Page</center></h1><hr>
+<form action="save">
+<table>
+<tr><td>Enter your name<td><input type=text name=t1 size=20></td></tr>
+<tr><td>Enter your address<td><input type=address name=t2 size=20></td></tr>
+<tr><td>Enter your phoneno<td><input type=text name=t3 size=20></td></tr>
+<tr><td>Enter your email<td><input type=address name=t4 size=20></td></tr>
+<tr><td>Enter your salary<td><input type=text name=t5 size=20></td></tr>
+<tr><td>Enter your designation<td><input type=address name=t6 size=20></td></tr>
+<tr><td><td><input type=submit value=submit></td></tr>
+</table>
+</form>
+</body>
+</html>
+-----------------------------oracle ----------------
+create table register215(name varchar2(30),address varchar2(30),phoneno varchar2(15),email varchar2(30),salary number, design varchar2(30));
+
+select * from register215;
+----------------------------------------------------------------
+success.jsp
+------------------
+<!DOCTYPE html>
+<html>
+<title>Employee Registration Successful</title>
+<body>
+<h1><center>Employee Registration Successful</center></h1><hr>
+</body>
+</html>
+-------------------------------------------------------
+JSP:- java server pages
+servlet :- server side programming language.
+
+HTML are static pages to make it dynamic we use php,.net,jsp,servlet to carry the request to the database.
+
+servlet :- the data is transfered using HTTP protocal .
+Here we have 2 parameters 
+HTTPServletRequest  req;(from client it will take the request)
+HTTPServletResponse res;(the server will give the response)
+-----------------------------------------assignment-2-----------------------------------------
+create a application for AirLines Reservation
+register
+book ticket
+checkin
+----------------------------------Success.jsp-----------------------------------------------------------
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>  
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>  
+  
+<html>  
+<head>  
+<title>sql:query Tag</title>  
+</head>  
+<body>  
+   <h1><center>Employee DataBase</center></h1><hr>
+<sql:setDataSource var="db" driver="oracle.jdbc.driver.OracleDriver"  
+     url="jdbc:oracle:thin:@localhost:1521:XE"  
+     user="system"  password="1234"/>  
+  
+<sql:query dataSource="${db}" var="rs">  
+SELECT * from register215  
+</sql:query>  
+   
+<table border="2" width="100%">  
+<tr>  
+<th>EmpName</th>  
+<th>Address</th>  
+<th>Phone no</th>
+<th>Email</th>  
+<th>Salary</th>  
+<th>Designation</th>
+<th>Gender</th>  
+<th>Nation</th>  
+<th>Hobby</th>
+  
+
+</tr>  
+<c:forEach var="table" items="${rs.rows}">  
+<tr>  
+<td><c:out value="${table.NAME}"/></td>  
+<td><c:out value="${table.ADDRESS}"/></td>  
+<td><c:out value="${table.PHONENO}"/></td>
+<td><c:out value="${table.EMAIL}"/></td>  
+<td><c:out value="${table.SALARY}"/></td>  
+<td><c:out value="${table.DESIGN}"/></td>
+<td><c:out value="${table.GENDER}"/></td>  
+<td><c:out value="${table.NATION}"/></td>  
+<td><c:out value="${table.HOBBY}"/></td>
+  
+</tr>  
+</c:forEach>  
+</table>  
+  
+</body>  
+</html>  
+--------------------------------------------------------------------------
+pom.xml
+-----------------------------
+<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+<dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+----------------------------------------------------------------------------
+
+
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.Oracle10Dialect
+spring.jpa.hibernate.ddl-auto=update
+------------------------------------------------------------------------------------------------
+Angular + spring
+-------------------------------------
+angular application run on localhost:4200(node server)
+springboot application run on localhost:8090/student/registration(tomcat)
+---------------------------------------------------------------------------------------------------------------
+crossOrigin 
+Angular to connect with springboot it will communicate with port no 8090/student/registration
+spring boot to connect with angular it will communicate with port no localhost:4200
+-----------------------------------------------------------------------------------
+1)main class:- springbootRestCrudMySqlExampleApplication.java
+----------------------------------------------------------------------------------------------
+2)model :- student.java .it is used to create table in the database.getter() and settter()
+------------------------------------------------------------------------------------------------------------------------------
+@Entity -it is super class for model.
+@Table :- it will create table in oracle.you can mention the table name otherwise it will create table by the name of the class.example:- @Table("/Student1");
+@ID :- it is the primary key field.
+@GeneratedValue :-we have different type of generatedValue like sequence (serially nos will be generated),auto is used in mysql similar to sequence ,assigned is used to assign the value.
+@column :- to create column as the name of the variable.
+---------------------------------------------------------------------------------------------------------------------------------- 
+logging :- to see the flow of the control.
+error
+info
+debug
+warn
+-------------------------------------------------
+swagger :- localhost:8090/show,localhost:8090/show1
+---------------------------------------------------
+industry best standard:-
+--------------------------------------------------------
+jasmine (Karma)
+------------------------------------------------------------------------------------------------------------------------------
+3)EmployeeRepository
+-------------------------------
+EmployeeRepository extends JpaRepository<Employee,Integer>
+------------------------------------------------------<model class><primary key field return type>---------------------------
+
+----------------------------------------------------------------------------------------------------------------------------
+4)service
+-----------------
+saveStudent(Student s);
+updateStudent(Student s);
+deleteStudent(Integer id);
+List<Student> getAllStudent();
+isStudentExist(Integer id);
+-----------------------------------------------------------------------------------------------
+5)serviceInplementation
+-------------------------------------------
+@Autowired StudentRepository repo;
+
+saveStudent(Student s){repo.save(s)}
+updateStudent(Student s){repo.save(s)}
+deleteStudent(Integer id){repo.deleteById(id)}
+List<Student> getAllStudent(){repo.findAll()}
+isStudentExist(Integer id){repo.existsById(id)}
+---------------------------------------------------------------------------
+four Methods in Restful webservices
+------------------------------------------------------------------------------------------------
+1)@PostMapping("/save") ----it is used to save the data intoo the data base.
+2)@GetMapping("/reg")---To retrive the data from the database.
+3)@PutMapping("/save")----To modify the data
+4)@DeleteMapping("{id}")----To delete the data from the database.
+--------------------------------------------------------------------------------------------------------
+we are passing the value using angular.the data is modified ,deleted,saved for retrived from the database using angular.
+frontend dev are under process.The backend developer have completed there task no to test there application without the angular we use swagger.It is a graphical user interface.
+-------------------------------------------------------------------------------------------
+all the files are connected in the controller.It has a input and it has a return output.
+--------------------------------------------------------------------------------------------------------------------
+Angular:-
+we have modules 
+1)student-all:-to display all the student details.we can edit and delete a row from it.
+2)student create:- this is used to enter the data and save the data.
+3)student-edit:- It has 2 parts
+i)display data using id where we can modify it.
+ii)save the data.
+--------------------------------------------------------------------------------------
+here we have 2 words:-
+1)Observable :- it a stream of events or data.
+It will return http.get(data).
+--------------------------------------------------------------------------------------
+2)subscribe:- it starts the Observable and display the data.(dynamically)
+-----------------------------------------------------------------------------------
+example:- 
+getMovies():Observable<Movies[]>
+{
+return this.http.get <Movies[]>(this.movies);
+}
+------------------------------------------------------------------------------
+this.movieService.getMovies().subscribe
+((movies:Movies[]))=>this.movies=movies,
+console.log(this.movies);
+error =>{console.error};
+----------------------------------------------------------------
+student.service.ts
+---------------------------------
+StudentService [basePath="http://localhost:8090/rest/student';]
+-------------------------------------
+getAllStudents():-get<student[]>
+deleteOneStudent(id):-delete()
+createStudent(Student student):-post()
+getOneStudent(id):-get()
+updateStudent(id,student) :-put()
+----------------------------------------------------------------
+student-all.component.ts
+------------------------------------------
+constructor(StudentService,Router)
+ngOnInit():- getAllStudent()
+getAllStudent()
+{
+return this.service.getAllStudent().subscribe(data=>{this.students=data;},error=>{console.log(error);});
+}
+---------------------------------------------
+1)getAlllStudents();
+2)deleteStudent(id)
+3)editStudent(id)
+------------------------------------------------------------------------------
+student-create.component.ts
+----------------------------------------
+createStudent()
+{}
+-------------------------------------------------------
+student-edit.component.ts
+--------------------------------------------
+1)getOneStudent(id);
+2)updateStudent();
+-----------------------------------------------------
+app.module.ts
+-------------------
+import {HttpClientModule} from '@angular/common/http';
+----------------------------------------
+router path is given in app-routing.module.ts;
+--------------------------------------------------------------------------
+student-all.component.html
+-----------------------------------------
+deleteStuudent(id)
+editStudent(id)
+--------------------------------------------------
+Controller
+------------------------
+@RestController
+@RequestMapping("/rest/student")
+@CrossOrigin(origins="htttp://localhost:4200") 
+When the data is coming from different server to acces itt we use CrossOrigin
+------------------------------------------------------------------------------------
+@Autowired
+private IStudentService service;
+private StudentUtil util;
+
+---------------------------------Backend is responsible to display the data-----------------------------------------------
+1)@PostMapping("/save")
+service.saveStudent(student);
+2)@GetMapping("/all")
+List<Student> list=service.getAllStudents();
+3)getMapping("one/{id}")
+service.getOneStudent(id);
+4)@DeleteMapping("/remove/{id}")
+if(service.isSttudentExist(id))
+service.deleteStudent(id);
+5)@PutMapping("/modify/{id}")
+service.getOneStudent(id);
+--------------------------------------------------------
+angular:-localhost:8090/student/save
+*The path url will be coming from the frontend and the controller will display the data.
+controller:-localhost:4200/save
+--------------------------------------------------------------------------------------------------------------------
+
+
