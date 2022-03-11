@@ -1,0 +1,8 @@
+p { color: blue; } 
+h1{ color: white; }
+center{ color: white; }
+h2{ color: blue; }
+body {
+  background-image: url("abc.jpg");
+ background-repeat: no-repeat;
+}

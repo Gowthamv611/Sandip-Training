@@ -1,0 +1,6 @@
+1)13 is the file name with four tabs .home,register,contact,feedback
+2)make 4 copies 
+3)give there names home.html,register.html,contact.html,feedback.html
+4)give <a herf="home.html">Home</a>
+5)<li class="active"><a href="home.html">Home</a>
+

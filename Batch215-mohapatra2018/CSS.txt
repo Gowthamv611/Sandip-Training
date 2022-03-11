@@ -1,0 +1,393 @@
+CSS stands for cascading style sheets.
+It is used for design purpose.
+The external style sheet saves a lot of work.
+The external style sheet is stored in .css files.
+------------------------------------------------------------------------------
+We have 3 ways of inserting a style sheet.
+1)External style sheet
+2)Internal style sheet
+3)Inline style sheet
+-----------------------------------------------------------------------------
+The html page should look good.
+---------------------------------------------------------
+you have created 50pages the client want changes in every page.
+we use external css which will save lot of work.
+-----------------------------------------------------------------------
+Internal style sheet :- it is written inside the html page.It is used with the html tag.We can also create our own tag.
+---------------------------------
+Example-1
+----------------------
+<html>
+<head>
+<title>This is my first page</title>
+<style>
+h1
+{
+background-color:cyan;
+color:red;
+}
+h2
+{
+background-color:yellow;
+color:red;
+}
+body
+{
+background-color:pink;
+}
+x1
+{
+background-color:green;
+}
+p
+{
+font-family:"Times New Roman";
+font-size:50px;
+color:red;
+}
+</style>
+</head>
+<body>
+<h1><center>This a Internal CSS Example</center></h1>
+<h2><center>Welcome All To Internal CSS Example</center></h2>
+<x1>This is our own Tag</x1>
+<p>This is a paragraph Tag</p>
+<p>This is a paragraph Tag</p>
+<p>This is a paragraph Tag</p>
+</body>
+</html>
+------------------------------------------------
+h1
+{
+background-color:cyan;
+color:red;
+}
+
+syntax:-
+
+selector {declaration}
+
+selector {property:value;}
+----------------------------------------------------------------------
+In this case h1 is the selector
+background-color is the property .
+cyan is the value.
+we can have multiple declaration.
+---------------------------------------------------------------------------
+color:red in this color indicates the font color.
+-----------------------------------------------------------------------------
+There are 5 types of selectors
+-----------------------------------------------
+1)CSS element selector
+2)CSS id selector
+3)CSS Class selector
+4)CSS Universal selector
+5)CSS Group selector
+-------------------------------------------------------------
+Example-2
+-----------------
+<html>
+<head>
+<style>
+h1
+{
+background-color:yellow;
+}
+h2
+{
+background-color:#64D62E ;
+}
+p
+{
+background-color:#e0ffff;
+}
+div
+{
+background-color:#b0c4de;
+}
+</style>
+</head>
+<body>
+<div>
+<h1><center>This is a heading tag</center></h1>
+<h2>This is a heading tag</h2>
+This text is inside the div tag.
+<p>This is a text inside the paragraph tag</p>
+There is a question how to change color in between a line<span style="color:red;">How can we change color inside a line ?</span><span style="color:blue;">We have to user span tag for it.</span>This was the question by Jai.
+</div>
+</body>
+</html>
+-----------------------------------------------------
+2)CSS id selector :-
+The id selector is used for unique/single element.
+We use # for id . 
+----------------------------------------------
+Example-3
+---------------------
+<html>
+<head>
+<style>
+#para
+{
+text-align:center;
+color:blue;
+}
+</style>
+</head>
+<body>
+<p id="para">This is id tag used for Single element</p>
+<p id="para">This is id tag used for Single element</p>
+</body>
+</html>
+------------------------------------------------------------------------------
+CSS Class selector :- It is used for multiple elements.
+We use (.) for the class selector.
+--------------------------------------------------------------
+Example-4
+---------------------
+<html>
+<head>
+<style>
+.para
+{
+text-align:center;
+color:blue;
+}
+</style>
+</head>
+<body>
+<h1 class="para">This is id tag used for Single element</h1>
+<h2 class="para">This is id tag used for Single element</h2>
+<p class="para">This is id tag used for Single element</p>
+<p class="para">This is id tag used for Single element</p>
+</body>
+</html>
+----------------------------------------------------------------------------------------
+CSS Class selector for specific element :-
+-------------------------------------------------------------------
+This will effect the specific element only.
+The h1 and h2 will not be effected.
+-------------------------------------------------------------------
+<html>
+<head>
+<style>
+p.para
+{
+text-align:center;
+color:blue;
+}
+</style>
+</head>
+<body>
+<h1 class="para">This is id tag used for Single element</h1>
+<h2 class="para">This is id tag used for Single element</h2>
+<p class="para">This is id tag used for Single element</p>
+<p class="para">This is id tag used for Single element</p>
+</body>
+</html>
+----------------------------------------------------------------------------------
+4)CSS Universal selector :- we use (*) or wildcard character for this.
+It will be applied to all elements.
+------------------------------------------------------------------------------------------------
+ <html>
+<head>
+<style>
+*
+{
+text-align:center;
+color:blue;
+}
+</style>
+</head>
+<body>
+<h1>This is id tag used for Single element</h1>
+<h2>This is id tag used for Single element</h2>
+<h3>This is id tag used for Single element</h3>
+<h4>This is id tag used for Single element</h4>
+<p>This is id tag used for Single element</p>
+<p>This is id tag used for Single element</p>
+</body>
+</html>
+--------------------------------------------------------------------------------------
+5)CSS Group selector :- The common element can form a group.
+h1{background-color:yellow;}
+h2{background-color:yellow;}
+h3{background-color:yellow;}
+p{background-color:yellow;}
+
+So in this case we can write in a group.
+
+h1,h2,h3,p{background-color:yellow;}
+-------------------------------------------------------------------------
+Example-7
+----------------------
+<html>
+<head>
+<style>
+h1,h2,h3,h4
+{
+text-align:center;
+color:blue;
+}
+p
+{
+background-color:yellow;
+}
+</style>
+</head>
+<body>
+<h1>This is id tag used for Single element</h1>
+<h2>This is id tag used for Single element</h2>
+<h3>This is id tag used for Single element</h3>
+<h4>This is id tag used for Single element</h4>
+<p>This is id tag used for Single element</p>
+<p>This is id tag used for Single element</p>
+</body>
+</html>
+---------------------------------------------------------------------
+example-8
+---------------------
+<html>
+<head>
+<style>
+th
+{
+color:green;
+}
+td
+{
+color:blue;
+}
+table,td,th
+{
+border:1px solid red;
+}
+</style>
+</head>
+<table>
+<tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>
+<tr><td>HTML</td><td>HTML</td><td>HTML</td><td>HTML</td><td>HTML</td></tr>
+<tr><td>CSS</td><td>CSS</td><td>CSS</td><td>CSS</td><td>CSS</td></tr>
+<tr><td>JAVASCRIPT</td><td>JAVASCRIPT</td><td>JAVASCRIPT</td><td>JAVASCRIPT</td><td>JAVASCRIPT</td></tr>
+<tr><td>ANGULAR</td><td>ANGULAR</td><td>ANGULAR</td><td>ANGULAR</td><td>ANGULAR</td></tr>
+</table>
+<body>
+
+</body>
+</html>
+----------------------------------------------------------------------------------------
+example-9
+-------------------
+<html>
+<head>
+<style>
+input:focus
+{
+background-color:yellow;
+color:red;
+}
+</style>
+</head>
+<body><center>
+<table border=2 cellspacing=10 cellpadding=5>
+<tr><td>First name :<td><input type=text name=t1 size=20></tr>
+<tr><td>Last name :<td><input type=text name=t2 size=20></tr>
+<tr><td>email :<td><input type=text name=t3 size=20></tr>
+<tr><td>Phone no :<td><input type=text name=t4 size=20></tr>
+<tr><td><td><input type=submit value=submit></tr>
+</table>
+</body>
+</html>
+-----------------------------------------------------------------------------------------
+cellspacing=10 :- It is the space between the cells.
+cellpadding=5 :- It is the space between the border from all sides.
+-----------------------------------------------------------------------------------------------------
+List :-
+We have 
+1)order list (numeric list) 
+2)unorder list (bulleted list)
+3)Description list 
+-------------------------------------------------------------------
+example-10
+---------------------
+<html>
+<body>
+<ol>
+<li>Sai</li>
+<li>Kiran</li>
+<li>Madhu</li>
+<li>Gopal</li>
+</ol>
+<ul>
+<li>Sai</li>
+<li>Kiran</li>
+<li>Madhu</li>
+<li>Gopal</li>
+</ul>
+
+<dl>
+<dt>Mphasis Batch 205<dt>
+<dd>-There are 57 students </dd>
+<dt>Mphasis Batch 215<dt>
+<dd>-There are 37 students </dd>
+</dl>
+</body>
+</html>
+-----------------------------------------------------------------------
+<ol> ---order list
+<ul> ---unorder list
+<dl> --- This tag defines the starting of the list
+<dt> ---The term of the list
+<dd> --- The term defination.
+-------------------------------------------------------
+inline css
+---------------------------------
+The style will be within the line.
+example:-
+<p style="color:blue">This is an example of Inline css</p>
+-----------------------------------------------------------------------------------------
+<html>
+<body>
+<p style="color:blue;text-align:center;">This is an example of Inline css</p>
+<p style="color:green">This is an example of Inline css</p>
+<p style="color:red">This is an example of Inline css</p>
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------------
+External css
+-----------------------
+The css will be written out side the html .We have to save the css file with .css extention.
+To access the external css we have to call the .css file within the html file.
+--------------------------------------------------
+<link rel="stylesheet" type="text/css" href="abc.css"/>
+---------------------------------------------------------------------------------------------------------
+  abc.css
+------------------
+p{color:white;}
+h1,h3{color:yellow;}
+h2{color:red;}
+body
+{
+background-image: url("abc.jpg");
+background-repeat: no-repeat;
+}
+---------------------------------------------
+first.html
+---------------
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="abc.css"/>
+</head>
+<body>
+<p>This is external CSS</p>
+<h1>This is external CSS</h1>
+<h2>This is external CSS</h2>
+<h3>This is external CSS</h3>
+</body>
+</html>
+------------------------------------------------------------------------------------
+
+
+
+
+
